@@ -1,0 +1,133 @@
+ .buttonClass, .buttonClass2, h2, p {
+ font-family: "Helvetica"; color: #000; font-size:1em;
+ }
+ 
+ .buttonClass{
+ border-radius:8px; background-color:#fff;
+ border:#878787 solid 1px;
+ height: 5em; width: 46%;
+ text-align:center;
+display:inline-block;
+ } 
+
+ .segment {
+ display:block; border-radius:8px; background-color:#eee;
+ border:#878787 solid 1px; padding:5em; margin:.5em;
+ text-align:left;
+ -webkit-appearance:none; 
+ }
+ 
+
+
+table {
+ width:100%;
+    border:0px;
+   
+}
+td {
+margin:5px;
+}
+
+ @media screen and (max-width:800px) {
+ .buttonClass { width: 100%;}
+ }
+     
+     .notes{
+	margin-left:auto;
+	margin-right:auto;
+    max-width: 500px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+}
+
+
+.notes input[type="text"]{
+	border: 1px solid #DADADA;
+	color: #888;
+	height: 30px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 3px 3px 3px 5px;
+	width: 100%;
+	font-size: 12px;
+	line-height:25px;
+	box-shadow: inset 0px 1px 4px #ECECEC;
+	-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+	-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.notes input[type="date"]{
+	border: 1px solid #DADADA;
+	color: #888;
+	height: 30px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 3px 3px 3px 5px;
+	width: 100%;
+	font-size: 12px;
+	line-height:25px;
+	box-shadow: inset 0px 1px 4px #ECECEC;
+	-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+	-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+ #false{
+ margin-left:14%;
+ }
+ 
+ .newTasks{
+display: inline-block;
+	padding:25px 25px 40px;
+	margin: 10px;
+	width:200px;
+	height:200px;   
+	font:18px 'Gloria Hallelujah', cursive; 
+	
+	border:0;
+	border-radius:3px;
+	background: linear-gradient(#F9EFAF, #F7E98D);
+	box-shadow:0 4px 6px rgba(0,0,0,0.1);
+	
+	transition:box-shadow 0.5s ease;
+	-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;
+	max-width:520px;
+	max-height:250px;
+}
+
+#segment_new{
+visibility:hidden;
+}
+#notes_new{
+visibility:hidden;
+}
+
+#new_note{
+visibility:hidden;
+}
+
+#buttons{
+width: 45%;
+	  height: 300px;
+	  color: white;
+	 opacity: 0.5;
+	 font:3vw 'Gloria Hallelujah', cursive; 
+	 box-shadow: 10px 10px 5px #888888;
+	 margin: 2px;
+	background: rgb(200,200,0);
+}
+
+#main{
+width:100%;
+height:100%;
+}
+
+#space{
+
+
+}
