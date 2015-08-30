@@ -1,4 +1,4 @@
-F:\Notes\platforms\android\ant-build\CordovaApp-debug-unaligned.apk : \
-F:\Notes\platforms\android\ant-build\CordovaApp.ap_ \
-F:\Notes\platforms\android\ant-build\classes.dex \
-F:\Notes\platforms\android\CordovaLib\ant-build\classes.jar \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\CordovaApp-debug-unaligned.apk : \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\CordovaApp.ap_ \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes.dex \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\CordovaLib\ant-build\classes.jar \

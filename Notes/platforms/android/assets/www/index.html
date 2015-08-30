@@ -21,15 +21,30 @@
 <div id="main">
 	<button  id="button_note" onclick="show_note()">Notes </button></a>
 	<button id="button_new" onclick="new_note()">Add a new note </button></a>
+	
 </div>
- 
 
+<input type="text" id="search" placeholder="Search.." oninput="search_note()"/><br/>
 
+ <form class="sel">
+ <select id="selects" onchange="select_note()" >
+ <option value="Select">Select Category</option>
+  <option value="Private">Private</option>
+  <option value="Home">Home</option>
+  <option value="Work">Work</option>
+	</select>
+</form>
 <div id="notes_new">
     <form class="notes">
        Note: <input type="text" class="txtinput" id="txtinput" />  <br> 
        Date: <input type="date" class="dateinput" id="dateinput" /><br>
 	   Note Color: <input type="color" class="colorinput" id="colorinput" value="#F9EFAF" />
+	 
+	Select Category:  <select id="select">
+  <option value="Private">Private</option>
+  <option value="Home">Home</option>
+  <option value="Work">Work</option>
+	</select>
     </form>
     <input type="button" class="buttonClass" value="submit" onclick="opendbs()">
 </div>
