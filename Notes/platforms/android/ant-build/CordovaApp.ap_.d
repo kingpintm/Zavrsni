@@ -29,6 +29,7 @@ C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\res\
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\_where-is-www.txt \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\assets \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\cordova.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\cordova_plugins.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\index.html \
@@ -36,6 +37,10 @@ C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jqu
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\main.css \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\main.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\assets\www \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\assets\www\index.html \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\assets\www\main.css \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\assets\www\main.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jquery\jquery-1.11.2.min.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jquery\jquery.mobile-1.4.5.min.css \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jquery\jquery.mobile-1.4.5.min.js \

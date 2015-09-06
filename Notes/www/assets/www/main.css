@@ -15,16 +15,6 @@
 	margin-top:10px;
 	
 }
-    #new_cat{
-	max-width:100%;
-background-color:#eee;
-opacity:0.7;
-display:block; border-radius:8px; background-color:#eee;
- border:#878787 solid 1px; padding:5em; 
- text-align:center;
-
-}
-  
 #search{
 	border: 1px solid #DADADA;
 	color: #888;
@@ -130,21 +120,6 @@ display: inline-block;
 	position: relative;
 	margin-top:.5em;
  } 
- 
-  #catsubmit{
-	border-radius:10px;
-	background-color:#fff;
-	border:#878787 solid 1px;
-	height: 3em; 
-	text-align:center;
-	display:inline-block;
-
-	width: 20%;
-	box-shadow: 10px 10px 5px #888888;
-	margin-left: 0%;
-	position: relative;
-	margin-top:1.5em;
- } 
 
 
  .segment {
@@ -152,7 +127,7 @@ display: inline-block;
  border:#878787 solid 1px; padding:5em; margin:.5em;
  text-align:left;
  -webkit-appearance:none; 
- margin-top:-750px;
+ margin-top:-450px;
  opacity:0.7;
  }
  
