@@ -1,7 +1,63 @@
+var cnt = false;
 var id1;
+var id2;
 document.addEventListener("deviceready", opendbs, false);
 document.addEventListener("deviceready", addcategory, false);
+/*
+function listcat()
+{
+var db = window.sqlitePlugin.openDatabase("dbnotes", "1.0", "Notes", -1);
+ db.transaction(catqueryDB, errorCB, successCB);	
+}
+function catqueryDB(tx)
+{
+	querylistCat(tx);
+}
+function querylistCat(tx) {
+tx.executeSql('INSERT INTO Category(category_name) VALUES (?,?,?)', ['private', 'home', 'work']);
+ tx.executeSql("SELECT id, category_name from Category;", [], listcatSuccess, errorCB);
+}
 
+function listcatSuccess(tx, results) {
+	 var lens = results.rows.length;
+document.getElementById("astimande").innerHTML="";
+console.log("PRVI")
+ for (var i = 0; i < lens; i++) 
+ {	
+console.log("DRUGI")
+ var y = results.rows.item(i).id;
+ document.getElementById("astimande").innerHTML += "<ul id='listcats' class='listcats1'><li>" +  results.rows.item(i).category_name +  "</li><li>" + "x" +"</li></ul>";
+ document.getElementById('listcats').setAttribute('id',y);
+ } 
+ console.log("TRECI")
+}
+*/
+
+function deletecat(x)
+{
+   var r = confirm("Are you sure you want to delete this row?");
+   if (r == true) {
+	 var db = window.sqlitePlugin.openDatabase("dbnotes", "1.0", "Notes", -1);
+	
+ id2 = x.id;
+  db.transaction(deletecatlist,errorCB, successCB);
+ } 
+
+}
+
+function deletecatlist(tx)
+{
+	console.log("ALOSOOOO")
+	console.log(id2)
+	tx.executeSql('DELETE FROM Category WHERE id like ?',[id2]);
+	console.log("ALOSOOOO")
+	addcategory();
+}
+
+function showcatlist()
+{
+	addcategory();
+}
 function showcat()
 {
 	document.getElementById("notes_new").style.visibility="hidden";
@@ -14,8 +70,8 @@ function showcat()
 
 function addcategory()
 {
-
-var db = window.sqlitePlugin.openDatabase("dbnotes", "1.0", "Notes", -1);
+var db = null;
+db = window.sqlitePlugin.openDatabase("dbnotes", "1.0", "Notes", -1);
  db.transaction(categoryDB, errorCB, successCB);
 }
 
@@ -36,14 +92,27 @@ function categoryDB(tx)
 
 
 function queryCat(tx) {
+	
+	if(cnt ===true)
+	{
+		 tx.executeSql("SELECT id, category_name from Category;", [], catSuccess, errorCB);
+	}
+	else{
+	 tx.executeSql('INSERT  INTO Category(category_name) VALUES (?)', ["Private"]);
+	 	 tx.executeSql('INSERT  INTO Category(category_name) VALUES (?)', ["Home"]);
+		 	 tx.executeSql('INSERT  INTO Category(category_name) VALUES (?)', ["Work"]);
+cnt = true;
  tx.executeSql("SELECT id, category_name from Category;", [], catSuccess, errorCB);
+}
 }
 
 
 function catSuccess(tx, results) {
+
 	 var len = results.rows.length;
 	selectrows= document.getElementById("select");
 	selectrows1= document.getElementById("selects");
+
 /*for (var i = 3; i < len; i++) 
  {
 	selectrows.remove(i)
@@ -68,7 +137,29 @@ for (var i = 0; i < len; i++)
 		
 		z.add(option);
 	 }  
-	var usedNames = {};
+	
+for (var j = 0;j < len; j++) 
+ {	
+  	
+
+ var jid = results.rows.item(j).id;
+ console.log("TEST TEST TEST TEST TEST")
+	console.log(jid)
+
+document.getElementById("container").innerHTML += "<li id='liid' onclick='deletecat(this);'>" + results.rows.item(j).category_name + "</li>"
+document.getElementById('liid').setAttribute('id',jid);
+/*
+var li = document.createElement("li");
+var textnode = document.createTextNode(results.rows.item(j).category_name);
+ li.appendChild(textnode);
+ li.id = j;
+ li.onclick = deletecat(this);
+    var ul = document.getElementById("container");
+   ul.insertBefore(li, ul.childNodes[0]);*/
+
+    } 
+
+  	var usedNames = {};
 	$("select > option").each(function () {
 		if(usedNames[this.text]) {
 			$(this).remove();
@@ -81,7 +172,7 @@ for (var i = 0; i < len; i++)
 
 function catend(){
 
-		document.getElementById("notes_new").style.visibility="visible";
+	document.getElementById("notes_new").style.visibility="visible";
 	document.getElementById('catname').style.visibility="hidden"
 	document.getElementById('cattekst').style.visibility="hidden"
 	document.getElementById('catsubmit').style.visibility="hidden"
@@ -105,14 +196,13 @@ function opendbs()
 // create table
 function populateDB(tx) {
 //tx.executeSql('DROP TABLE IF EXISTS Category')
-tx.executeSql('CREATE TABLE IF NOT EXISTS Notes (id integer primary key, Note text, Date integer, Colour text, Category text)');
+tx.executeSql('CREATE TABLE IF NOT EXISTS Notes (id integer primary key, Note text, Date integer, Colour text, Category text, Checked text)');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS Category (id integer primary key, category_name text)');
 //tx.executeSql('CREATE TABLE IF NOT EXISTS Notes_Category (id integer primary key, id id_note, id id_category)');
 
 
-//tx.executeSql('INSERT IGNORE INTO Category(Category) VALUES (?,?,?)', ['private', 'home', 'work']);
 
-
+var checkbox = document.getElementById("todo").checked;
 var note=document.getElementById('txtinput').value;
 var date=document.getElementById('dateinput').value;
 var colors=document.getElementById('colorinput').value;
@@ -129,7 +219,7 @@ else{
 	var note_id= tx.executeSql('SELECT id from Note WHERE Note like ?', [note]);
 	*/
 	
-	tx.executeSql('INSERT INTO Notes (Note, Date, Colour, Category) VALUES (?,?,?, ?)', [note, date, colors, select]);
+	tx.executeSql('INSERT INTO Notes (Note, Date, Colour, Category, Checked) VALUES (?,?,?,?,?)', [note, date, colors, select, checkbox]);
 	//tx.executeSql('INSERT INTO Notes_Category (id_note, id_category) VALUES (?,?)', [note_id,category_id]);
 	queryDB(tx);
 }
@@ -170,23 +260,51 @@ function deletenote(tx)
 
 // form the query 
 function queryDB(tx) {
- tx.executeSql("SELECT id, Note, Date, Colour, Category from Notes;", [], querySuccess, errorCB);
+ tx.executeSql("SELECT id, Note, Date, Colour, Category, Checked from Notes;", [], querySuccess, errorCB);
 }
 
 
 // Display the results
 function querySuccess(tx, results) {
-document.getElementById("output").innerHTML="";
+var slika = "<img src=close.png>";
  var len = results.rows.length;
-	
+document.getElementById("output").innerHTML="";
  for (var i = 0; i < len; i++) 
  {	
- var x = results.rows.item(i).id;
- document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this);' ><tr id='editable'><td>"/*+ results.rows.item(i).id*/ +  "</td><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date + /*results.rows.item(i).Category + */"</td><td>" + "</td></tr></table>";
+var x = results.rows.item(i).id;
+if(results.rows.item(i).Checked === "true")
+{
+	 document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable'><td><li>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</li></td><td id='newTasks' >" + slika + "</td></tr></table>";
+}
+ else{
+  document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable' ><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</td><td id='newTasks' >" + slika + "</td></tr></table>";
+ }
  document.getElementById('newTasks').setAttribute('id',x);
  document.getElementById(x).style.background = results.rows.item(i).Colour;
- } 
+  var time = results.rows.item(i).Date;
+ var category = results.rows.item(i).Category;
+ var notetxt =  results.rows.item(i).Note;
+  var d = new Date();
+    var n = d.getTime();
+	
+
+ console.log(time)
+ if (time == null || time == undefined || time == "")  
+ {
+	 continue;
+ }
+ else{
+	    var da = new Date(time);
+    var na = da.valueOf();
+	 if (n < na)
+	 {
+ scheduleDelayed(x,time,category,notetxt);
+	 }
 }
+ }
+ }
+
+
 
 function search_note()
 {
@@ -251,11 +369,13 @@ if(document.getElementById("segment_note").style.visibility == "hidden")
 {
 document.getElementById("segment_note").style.visibility="visible";
 document.getElementById("notes_new").style.visibility="hidden";
+
 }
 else
 {
 document.getElementById("segment_note").style.visibility="hidden";
 }
+opendbs()
 }
 
 function new_note() {
@@ -263,6 +383,7 @@ if(document.getElementById("notes_new").style.visibility == "hidden")
 {
 document.getElementById("notes_new").style.visibility="visible";
 document.getElementById("segment_note").style.visibility="hidden";
+	
 document.getElementById('colorinput').value="#F9EFAF";
 addcategory();
 }
@@ -272,3 +393,96 @@ document.getElementById("notes_new").style.visibility="hidden";
 addcategory();
 }
 }
+
+
+
+
+
+
+            var id = 1, dialog;
+
+            callback = function () {
+                cordova.plugins.notification.local.getIds(function (ids) {
+                    showToast('IDs: ' + ids.join(' ,'));
+                });
+            };
+
+            showToast = function (text) {
+                setTimeout(function () {
+                    if (device.platform != 'windows') {
+                        window.plugins.toast.showShortBottom(text);
+                    } else {
+                        showDialog(text);
+                    }
+                }, 100);
+            };
+
+            showDialog = function (text) {
+                if (dialog) {
+                    dialog.content = text;
+                    return;
+                }
+
+                dialog = new Windows.UI.Popups.MessageDialog(text);
+
+                dialog.showAsync().done(function () {
+                    dialog = null;
+                });
+            };
+
+  
+		
+		
+                   scheduleDelayed = function (x,time,category,notetxt) {
+			   var d = new Date(time);
+    var n = d.valueOf();
+
+    document.getElementById("sched").innerHTML = n;
+
+
+                var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
+
+                cordova.plugins.notification.local.schedule({
+                    id: x,
+                    title: category,
+					text: notetxt,
+                    at: n,
+                    sound: sound,
+                    badge: 12
+                });
+            };
+			
+			
+			    update = function () {
+                cordova.plugins.notification.local.update({
+                    id: 1,
+                    text: 'Updated Message 1',
+                    json: { updated: true }
+                });
+            };
+
+            updateInterval = function () {
+                cordova.plugins.notification.local.update({
+                    id: 1,
+                    text: 'Updated Message 1',
+                    every: 'minute'
+                });
+            };
+			
+			  setDefaultTitle = function () {
+                cordova.plugins.notification.local.setDefaults({
+                    title: 'New Default Title'
+                });
+            };
+			
+			  document.addEventListener('deviceready', function () {
+
+                cordova.plugins.notification.local.on('schedule', function (notification) {
+                    console.log('onschedule', arguments);
+                    // showToast('scheduled: ' + notification.id);
+                });
+
+        
+            }, false);
+			
+			  app.initialize();

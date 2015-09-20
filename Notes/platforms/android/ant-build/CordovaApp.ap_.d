@@ -46,6 +46,7 @@ C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jqu
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\jquery\jquery.mobile-1.4.5.min.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.apache.cordova.file \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.nypr.cordova.wakeupplugin \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin\www \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin\www\SQLitePlugin.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.apache.cordova.file\www \
@@ -71,4 +72,6 @@ C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plu
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.apache.cordova.file\www\requestFileSystem.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.apache.cordova.file\www\resolveLocalFileSystemURI.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.apache.cordova.file\www\android\FileSystem.js \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.nypr.cordova.wakeupplugin\www \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\assets\www\plugins\org.nypr.cordova.wakeupplugin\www\wakeup.js \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\AndroidManifest.xml \

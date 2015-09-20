@@ -48,6 +48,10 @@ C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\clas
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\apache\cordova\file\LocalFilesystemURL.class \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\apache\cordova\file\NoModificationAllowedException.class \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\apache\cordova\file\TypeMismatchException.class \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\nypr\cordova\wakeupplugin\WakeupBootReceiver.class \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\nypr\cordova\wakeupplugin\WakeupPlugin$1.class \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\nypr\cordova\wakeupplugin\WakeupPlugin.class \
+C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\nypr\cordova\wakeupplugin\WakeupReceiver.class \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\pgsqlite\SQLitePlugin$1.class \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\pgsqlite\SQLitePlugin$Action.class \
 C:\Users\KingPin\Documents\GitHub\Zavrsni\Notes\platforms\android\ant-build\classes\org\pgsqlite\SQLitePlugin$DBQuery.class \

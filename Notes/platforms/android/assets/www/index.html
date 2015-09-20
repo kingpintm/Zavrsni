@@ -9,12 +9,12 @@
  <script type="text/javascript" src="cordova.js"></script> 
  <script type="text/javascript" src="SQLitePlugin.js"></script> 
  <script type="text/javascript" src="main.js"></script> 
+
   <script type="text/javascript" src="bootbox.min.js"></script> 
 <link rel="stylesheet" type="text/css" href="main.css">
-
-
-
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
  </head>
+ 
 <body onload="opendbs()">
 
 <div id="main">
@@ -28,21 +28,17 @@
 
   <select id="selects" onchange="select_note()">
  <option value="All">Select Category</option>
-  <option value="Private">Private</option>
-  <option value="Home">Home</option>
-  <option value="Work">Work</option>
-	</select>
+
+	</select><a href="#overlay" id="open-overlay">	<input type="button" value="List all categories"  id="catlist" onclick="showcatlist()" ></input></a>
 
 <div id="notes_new">
     <form class="notes">
-       Note: <input type="text" class="txtinput" id="txtinput" />  <br> 
-       Date: <input type="date" class="dateinput" id="dateinput" /><br>
+       Note: <input type="text" class="txtinput" id="txtinput" />   <input type="checkbox" id="todo" name="vehicle" value="todo"> To - do list<br> <br> 
+       Date: <input id="dateinput" class="dateinput" type="datetime-local" ><br>
 	   Note Color: <input type="color" class="colorinput" id="colorinput" value="#F9EFAF" />
 	 
 	Select Category:  <select id="select">
-  <option value="Private">Private</option>
-  <option value="Home">Home</option>
-  <option value="Work">Work</option>
+
 	</select>
 	<input type="button" value="Add new category"  onclick="showcat()"></input>
     </form>
@@ -56,10 +52,21 @@
  <div id="output"> </div>
 </div>
 
-
-
- 
- 
+<div id="overlay">
+    <a href="#" class="close">&times;</a>
+    <div style="height:20%"></div>
+   
+     <ul id="container" >
+               
+                </ul>
+    
+</div>
+<div id="mask" onclick="document.location='#';"></div> <!-- the only javascript -->
+<div id="sched">
+       
+ </div>
+ <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
 </body>
  </html>
