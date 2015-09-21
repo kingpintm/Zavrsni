@@ -3,35 +3,7 @@ var id1;
 var id2;
 document.addEventListener("deviceready", opendbs, false);
 document.addEventListener("deviceready", addcategory, false);
-/*
-function listcat()
-{
-var db = window.sqlitePlugin.openDatabase("dbnotes", "1.0", "Notes", -1);
- db.transaction(catqueryDB, errorCB, successCB);	
-}
-function catqueryDB(tx)
-{
-	querylistCat(tx);
-}
-function querylistCat(tx) {
-tx.executeSql('INSERT INTO Category(category_name) VALUES (?,?,?)', ['private', 'home', 'work']);
- tx.executeSql("SELECT id, category_name from Category;", [], listcatSuccess, errorCB);
-}
 
-function listcatSuccess(tx, results) {
-	 var lens = results.rows.length;
-document.getElementById("astimande").innerHTML="";
-console.log("PRVI")
- for (var i = 0; i < lens; i++) 
- {	
-console.log("DRUGI")
- var y = results.rows.item(i).id;
- document.getElementById("astimande").innerHTML += "<ul id='listcats' class='listcats1'><li>" +  results.rows.item(i).category_name +  "</li><li>" + "x" +"</li></ul>";
- document.getElementById('listcats').setAttribute('id',y);
- } 
- console.log("TRECI")
-}
-*/
 
 function deletecat(x)
 {
@@ -47,10 +19,7 @@ function deletecat(x)
 
 function deletecatlist(tx)
 {
-	console.log("ALOSOOOO")
-	console.log(id2)
 	tx.executeSql('DELETE FROM Category WHERE id like ?',[id2]);
-	console.log("ALOSOOOO")
 	addcategory();
 }
 
@@ -113,12 +82,6 @@ function catSuccess(tx, results) {
 	selectrows= document.getElementById("select");
 	selectrows1= document.getElementById("selects");
 
-/*for (var i = 3; i < len; i++) 
- {
-	selectrows.remove(i)
-	selectrows1.remove(i)
- }*/
-	
 	for (var i = 0; i < len; i++) 
 	  {
 		var y=  document.getElementById("select");
@@ -143,19 +106,11 @@ for (var j = 0;j < len; j++)
   	
 
  var jid = results.rows.item(j).id;
- console.log("TEST TEST TEST TEST TEST")
-	console.log(jid)
+
 
 document.getElementById("container").innerHTML += "<li id='liid' onclick='deletecat(this);'>" + results.rows.item(j).category_name + "</li>"
 document.getElementById('liid').setAttribute('id',jid);
-/*
-var li = document.createElement("li");
-var textnode = document.createTextNode(results.rows.item(j).category_name);
- li.appendChild(textnode);
- li.id = j;
- li.onclick = deletecat(this);
-    var ul = document.getElementById("container");
-   ul.insertBefore(li, ul.childNodes[0]);*/
+
 
     } 
 
@@ -274,10 +229,10 @@ document.getElementById("output").innerHTML="";
 var x = results.rows.item(i).id;
 if(results.rows.item(i).Checked === "true")
 {
-	 document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable'><td><li>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</li></td><td id='newTasks' >" + slika + "</td></tr></table>";
+	 document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable'><td><li>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</li></td><td>" + slika + "</td></tr></table>";
 }
  else{
-  document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable' ><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</td><td id='newTasks' >" + slika + "</td></tr></table>";
+  document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable' ><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</td><td>" + slika + "</td></tr></table>";
  }
  document.getElementById('newTasks').setAttribute('id',x);
  document.getElementById(x).style.background = results.rows.item(i).Colour;

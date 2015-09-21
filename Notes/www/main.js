@@ -229,10 +229,10 @@ document.getElementById("output").innerHTML="";
 var x = results.rows.item(i).id;
 if(results.rows.item(i).Checked === "true")
 {
-	 document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable'><td><li>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</li></td><td id='newTasks' >" + slika + "</td></tr></table>";
+	 document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable'><td><li>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</li></td><td>" + slika + "</td></tr></table>";
 }
  else{
-  document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable' ><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</td><td id='newTasks' >" + slika + "</td></tr></table>";
+  document.getElementById("output").innerHTML += "<table id='newTasks' class='newTasks' onmousedown='deleterow(this)'; ><tr id='editable' ><td>" +results.rows.item(i).Note +  "</td><td></td><td>" + results.rows.item(i).Date +"</td><td>" + slika + "</td></tr></table>";
  }
  document.getElementById('newTasks').setAttribute('id',x);
  document.getElementById(x).style.background = results.rows.item(i).Colour;
