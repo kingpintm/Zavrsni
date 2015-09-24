@@ -153,7 +153,7 @@ function populateDB(tx) {
 //tx.executeSql('DROP TABLE IF EXISTS Category')
 tx.executeSql('CREATE TABLE IF NOT EXISTS Notes (id integer primary key, Note text, Date integer, Colour text, Category text, Checked text)');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS Category (id integer primary key, category_name text)');
-//tx.executeSql('CREATE TABLE IF NOT EXISTS Notes_Category (id integer primary key, id id_note, id id_category)');
+tx.executeSql('CREATE TABLE IF NOT EXISTS Notes_Category (id integer primary key, id id_note, id id_category)');
 
 
 
@@ -168,14 +168,14 @@ if(note=='')
        queryDB(tx);
     }
 else{
-	/*
+	
 	var category= tx.executeSql('SELECT Category from Category WHERE id like ?', [select]);
 	var category_id= tx.executeSql('SELECT id from Category WHERE Category like ?', [category]);
 	var note_id= tx.executeSql('SELECT id from Note WHERE Note like ?', [note]);
-	*/
+	
 	
 	tx.executeSql('INSERT INTO Notes (Note, Date, Colour, Category, Checked) VALUES (?,?,?,?,?)', [note, date, colors, select, checkbox]);
-	//tx.executeSql('INSERT INTO Notes_Category (id_note, id_category) VALUES (?,?)', [note_id,category_id]);
+	tx.executeSql('INSERT INTO Notes_Category (id_note, id_category) VALUES (?,?)', [note_id,category_id]);
 	queryDB(tx);
 }
 
@@ -302,7 +302,10 @@ if(selections=='All')
 		queryDB(tx);
 }
 else{
-	tx.executeSql("SELECT id, Note, Date, Colour, Category from Notes WHERE Category like ?;", [selections], querySuccess, errorCB);
+	var select_id = tx.executeSql("SELECT id, category_name from Category WHERE category_name like ?;", [selections], querySuccess, errorCB);
+	var  category_id = tx.executeSql("SELECT id_note, id_category from Notes_Category WHERE id_category like?;"[results.rows.item(i).Category;], querySuccess, errorCB)
+	tx.executeSql("SELECT id, Note, Date, Colour from Notes WHERE id like ?;", [category_id], querySuccess, errorCB);	
+
 	}
 	tx = null;
 
